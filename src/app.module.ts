@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AuthModule } from './auth/auth.module';
 import config from './configuration/config';
 
 @Module({
@@ -10,6 +11,7 @@ import config from './configuration/config';
       isGlobal: true,
       load: [config],
     }),
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
